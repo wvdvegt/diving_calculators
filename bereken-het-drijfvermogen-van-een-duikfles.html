@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Bereken het drijfvermogen van een duikfles</TITLE>
+<META NAME="Generator" CONTENT="TextPad 4.6">
+<META NAME="Author" CONTENT="?">
+<META NAME="Keywords" CONTENT="?">
+<META NAME="Description" CONTENT="?">
+
+<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="jquery/jquery.printf.js" type="text/javascript"></script>
+
+<script src="drijfvermogen.js" type="text/javascript"></script>
+
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://vander-vegt.nl/sites/all/libraries/piwik/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="https://vander-vegt.nl/sites/all/libraries/piwik/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+
+</HEAD>
+
+<BODY BGCOLOR="#F5F5F5" TEXT="#000000" LINK="#FF0000" VLINK="#800000" ALINK="#FF00FF">
+
+<table border="0" cellpadding="2" cellspacing="0" style="width: 95%" align="center">
+	<tbody>
+	<tr>
+		<th colspan="5"><h2>Drijfvermogen duikfles</h2></th>
+	</tr>
+	<tr>
+		<th style="width: 140px">&nbsp;</th>
+		<th style="width: 380px">Invoer gegevens</th>
+		<th style="width: 602px">&nbsp;</th>
+		<th style="width: 319px">Resultaten</th>
+		<th style="width: 302px">&nbsp;</th>
+	</tr>
+	<tr>
+		<td style="width: 140px">Materiaal:</td>
+		<td style="width: 380px">
+		<select id="iSgMateriaal" name="iSgMateriaal" size="1" style="border: 1px solid #000000; padding: 2px">
+		<option value="7.86" selected="selected">Staal</option>
+		<option value="2.7">Aluminium</option>
+		<option value="4">Carbon</option>
+		</select></td>
+		<td style="width: 602px">Volume
+		fleswand:
+		</td>
+		<td id="oVolumeMateriaal" style="width: 319px">&nbsp;
+		</td>
+		<td style="width: 302px">[Liter]</td>
+	</tr>
+	<tr>
+		<td style="width: 140px">Inhoud fles:</td>
+		<td style="width: 380px">
+		<input class="number" id="iCapaciteit" name="iCapaciteit" size="4" style="border: 1px solid #000000; padding: 3px; width: 64px;" type="text"/>
+		[Liter]</td>
+		<td style="width: 602px">Verplaatst volume: </td>
+		<td id="oTotaalVolume" style="width: 319px">&nbsp;
+		</td>
+		<td style="width: 302px">[Liter]</td>
+	</tr>
+	<tr>
+		<td style="width: 140px">Flesdruk:</td>
+		<td style="width: 380px">
+		<input class="number" id="iVulDruk" name="iVulDruk" size="4" style="border: 1px solid #000000; padding: 3px; width: 64px;" type="text"/>
+		[Bar]</td>
+		<td style="width: 602px; height: 2px;">
+		Gewicht van vulling: </td>
+		<td id="oGewichtVulling" style="width: 319px; height: 2px;">&nbsp;
+		</td>
+		<td style="width: 302px; height: 2px;">
+		[Kg]</td>
+	</tr>
+	<tr>
+		<td style="width: 140px">Gewicht:</td>
+		<td style="width: 380px">
+		<input class="number" id="iGewichtFles" name="iGewichtFles" size="4" style="border: 1px solid #000000; padding: 3px; width: 64px;" type="text"/>
+		[Kg]</td>
+		<td style="width: 602px">Totaal gewicht:
+		</td>
+		<td id="oTotaalGewicht" style="width: 319px">&nbsp;
+		</td>
+		<td>[Kg]</td>
+	</tr>
+	<tr>
+		<td style="width: 140px">Soort water:</td>
+		<td style="width: 380px">
+		<select id="iSgWater" name="iSgWater" size="1" style="border: 1px solid #000000; padding: 2px">
+		<option value="1.03">Zout water</option>
+		<option value="1.0" selected="selected">Zoet water</option>
+		</select></td>
+		<td style="width: 602px">Leeg drijfvermogen:
+		</td>
+		<td id="oLiftLeeg" style="width: 319px">&nbsp;
+		</td>
+		<td style="width: 302px">[Kg]</td>
+	</tr>
+	<tr>
+		<td style="width: 140px">Nitrox:</td>
+		<td style="width: 380px">
+		<input class="number" id="iNitrox" name="iNitrox" size="4" style="border: 1px solid #000000; padding: 3px; width: 64px;" type="text" value="21" disabled="1"/>
+		[%]</td>
+		<td style="width: 602px">
+		Drijfvermogen 50 Bar:
+		</td>
+		<td id="oLiftReserve" style="width: 319px">&nbsp;
+		</td>
+		<td>[Kg]</td>
+	</tr>
+	<tr>
+		<td style="width: 140px">&nbsp;</td>
+		<td style="width: 380px">&nbsp;</td>
+		<td style="width: 602px">Vol drijfvermogen:
+		</td>
+		<td id="oLiftVol" style="width: 319px">&nbsp;
+		</td>
+		<td style="width: 302px">[Kg]</td>
+	</tr>
+	<tr>
+		<td colspan="5">
+		<br/>
+		<ul>
+			<li>De berekening wijkt af bij drukken boven de 240 bar.</li>
+			<li>Volume en gewicht van de kraan wordt niet meegenomen in de brekening.</li>
+			<li>Het extra lood wat meegenomen moet worden om met 50 Bar op 3m te kunnen blijven is bedoeld voor het uitloden van de duiker zelf inclusief uitrusting, maar exclusief de duikfles.</li>
+			<li>Volgens Archimedes is deze hoeveelheid lood samen met het gewicht van de duiker zonder duikfles gelijk aan het gewicht van het verplaaatste watervolume.</li>
+		</ul><!--webbot bot="PurpleText" PREVIEW="
+		Barl @ 20'C toevoegen (gaswet &amp; gecorrigeerd volgens vdwaals)
+		Gewicht duiker toevoegen en volume uitrekenen!" -->
+		</td>
+	</tr>
+</tbody>
+</table>
+
+<hr/>
+<small><em>Let op: alhoewel de berekeningen gecontroleerd zijn, kunnen de uitkomsten foutief of inaccuraat zijn.</em></small>
+
+</BODY>
+</HTML>
