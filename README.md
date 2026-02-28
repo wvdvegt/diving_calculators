@@ -2,7 +2,7 @@
 
 ## Available Diving Calculators
 
-I've created a few scuba diving related calculators for educational purposes (so please (double) check any outcomes as mistakes are easily made):
+**I've created a few scuba diving related calculators for educational purposes (so please (double) check any outcomes as mistakes are easily made).**
 
 [Bereken de Equivalent LuchtDiepte (ELD) voor Nitrox](https://vander-vegt.nl/diving_calculators/bereken-de-equivalent-luchtdiepte-eld-voor-nitrox.html).
 
