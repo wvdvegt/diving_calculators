@@ -1,0 +1,133 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Bereken de Equivalent LuchtDiepte (ELD) voor Nitrox</TITLE>
+<META NAME="Generator" CONTENT="TextPad 4.6">
+<META NAME="Author" CONTENT="?">
+<META NAME="Keywords" CONTENT="?">
+<META NAME="Description" CONTENT="?">
+
+<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="jquery/jquery.printf.js" type="text/javascript"></script>
+
+<script src="nitrox.js" type="text/javascript"></script>
+
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://vander-vegt.nl/sites/all/libraries/piwik/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="https://vander-vegt.nl/sites/all/libraries/piwik/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+
+</HEAD>
+
+<BODY BGCOLOR="#F5F5F5" TEXT="#000000" LINK="#FF0000" VLINK="#800000" ALINK="#FF00FF">
+
+<table border="0" cellpadding="2" cellspacing="0" style="width: 95%" align="center">
+<tbody>
+	<tr>
+		<th colspan="6">
+		<h2>De <strong>E</strong>quivalente&nbsp;<strong>L</strong>ucht&nbsp;<strong>D</strong>iepte (ELD) voor Nitrox mengels</h2></th>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<th colspan="2">Invoer gegevens</th>
+		<th style="width: 335px">&nbsp;</th>
+		<th>Resultaten</th>
+		<th>&nbsp;</th>
+	</tr>
+	<tr>
+		<td>Diepte:</td>
+		<td style="width: 56px">
+		<input class="number" id="iDiepte" name="iDiepte" size="4" style="border: 1px solid #000000; padding: 3px; width: 64px;" type="text" value="10"></td>
+		<td style="width: 200px">[m]</td>
+		<td style="width: 335px">Equivalente luchtdiepte:</td>
+		<td id="oEld" style="width: 25px">
+		&nbsp;</td>
+		<td style="width: 50px">[m]</td>
+	</tr>
+	<tr>
+		<td>Nitrox:</td>
+		<td style="width: 56px">
+		<input class="number" id="iNitrox" name="iNitrox" size="4" style="border: 1px solid #000000; padding: 3px; width: 64px;" type="text" value="32"></td>
+		<td style="width: 200px">[% O<sub>2</sub>]</td>
+		<td style="width: 335px">Max. diepte:
+		</td>
+		<td id="oMaxDiepte" style="width: 25px">
+		&nbsp;</td>
+		<td style="width: 50px">[m]</td>
+	</tr>
+	<tr>
+		<td>max. ppO<sub>2:</sub> </td>
+		<td style="width: 56px">
+		<input class="number" id="iMaxPPo2" name="iMaxPPo2" size="4" style="border: 1px solid #000000; padding: 3px; width: 64px;" type="text" value="1.4"></td>
+		<td style="width: 200px">[bar]</td>
+		<td style="width: 335px">ppO<sub>2</sub>:</td>
+		<td id="oppO2" style="height: 31px; width: 25px;">
+		&nbsp;</td>
+		<td style="height: 31px; width: 50px;">[bar]</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="width: 56px; height: 11px;">
+		&nbsp;</td>
+		<td style="width: 200px; height: 11px;">
+		&nbsp;</td>
+		<td style="width: 335px; height: 11px;">
+		ppN<sub>2</sub>:</td>
+		<td id="oppN2" style="height: 11px; width: 25px;">
+		&nbsp;</td>
+		<td style="height: 11px; width: 50px;">[bar]</td>
+	</tr>
+	<tr>
+		<td style="width: 140px">&nbsp;</td>
+		<td style="width: 56px">&nbsp;</td>
+		<td style="width: 200px">&nbsp;</td>
+		<td style="width: 335px">Totale
+		(absolute) druk:</td>
+		<td id="oAbsDruk" style="width: 25px">
+		&nbsp;</td>
+		<td style="width: 50px">[bar]</td>
+	</tr>
+	<tr>
+		<td style="width: 140px">&nbsp;</td>
+		<td style="width: 56px">&nbsp;</td>
+		<td style="width: 200px">&nbsp;</td>
+		<td style="width: 335px">
+		Max. Nitrox
+		percentage:</td>
+		<td id="omaxNitrox" style="width: 25px">
+		&nbsp;</td>
+		<td style="width: 50px">[%]</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td colspan="5">
+		<br>
+		<img src="https://chart.apis.google.com/chart?=440x220&cht=tx&chf=bg,s,00000000&chco=000000FF&chl=ELD%20=%20\frac{(100-ppO_2)*(diepte%2B10)}{79}-10%20[m]" alt="Equivalent Air Depth" />
+		<br>of<br>
+		<img src="https://chart.apis.google.com/chart?=440x220&cht=tx&chf=bg,s,00000000&chco=000000FF&chl=ELD%20=%20\frac{ppN_2*(diepte%2B10)}{79}-10%20[m]" alt="Equivalent Air Depth" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan="6" id="oFormula">&nbsp;</td>
+	</tr>
+</tbody>
+</table>
+
+<hr/>
+<small><em>Let op: alhoewel de berekeningen gecontroleerd zijn, kunnen de uitkomsten foutief of inaccuraat zijn.</em></small>
+
+</BODY>
+</HTML>
