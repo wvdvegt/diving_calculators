@@ -15,3 +15,5 @@
 [Boyle en Mariotte boven 240 bar](https://wvdvegt.github.io/diving_calculators/boyle-en-mariotte-boven-240-bar.html){:target="_blank"}.
 
 [De volledige gaswet](https://wvdvegt.github.io/diving_calculators/de-volledige-gaswet.html){:target="_blank"}.
+
+See [Wim's Space - Older Projects](https://wvdvegt.wordpress.com/older-projects/){:target="_blank"}.
